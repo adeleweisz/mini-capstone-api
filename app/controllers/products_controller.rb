@@ -1,29 +1,27 @@
 class ProductsController < ApplicationController
 
-  def one_product_method
-    product = Product.first
-    render json: product.as_json
-  end
 
   def index
     products = Product.all
-    render json: products.as_json
+    render json: products
   end
 
   def show
     product = Product.find_by(id:params["id"])
-    render json: product.as_json
+    render json: product
   end
 
   def create 
-    product = Product.new(
+     product = Product.new(
       name: params["name"],
       price: params["price"],
-      image_url: params["image_url"],
       description: params["description"]
     )
-    product.save
-    render json: product.as_json
+    if product.save
+    render json: product
+    else 
+      render json:{error_message: product.errors.full_messages},status: 422
+    end
   end
 
 
@@ -33,12 +31,15 @@ class ProductsController < ApplicationController
 
       product.name = params["name"] || product.name
       product.price = params["price"] || product.price
-      product.image_url = params["image_url"] || product.image_url
       product.description = params["description"] || product.description
     
-      product.save
-      render json: product.as_json
-  end
+
+      if product.save
+      render json: product
+      else #sad path 
+        render json: {error_message: product.errors.full_messsages}, status: 422
+       end
+      end
 
   
 

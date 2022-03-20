@@ -1,14 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-product1 = Product.create(name:"lipstick", price: 20,image_url:"", description: "matte,longlasting") 
-product2 = Product.create(name:"lipgloss", price: 18, image_url:"", description: "ultra shine") 
-product3 = Product.create(name:"lipliner", price: 22,image_url:"", description:"mattte,soft crayon")
-
-
-
-
+Product.create!([
+  {name: "lip oil", price: 18, url: "", description: "ultra shine"},
+  {name: "lipliner", price: 22, url: "", description: "matte,soft crayon"},
+  {name: "lipstick", price: 20, url: "https://media.allure.com/photos/5cb774e1bff1e604dabc3f35/master/pass/bite-beauty-amuse-bouche-lipstick.jpg", description: "matte,longlasting"},
+  {name: "test title", price: 0, url: "test image_url", description: "test directions"},
+  {name: "test title", price: 0, url: "test image_url", description: "test directions"},
+  {name: "test title", price: 0, url: "test image_url", description: "test directions"}
+])

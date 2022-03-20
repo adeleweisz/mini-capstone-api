@@ -14,6 +14,10 @@ gem "puma", "~> 5.0"
 
 gem 'rack-cors'
 
+gem 'active_model_serializers', '~> 0.10.0'
+
+gem 'seed_dump'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
