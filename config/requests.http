@@ -24,9 +24,49 @@ Content-Type: application/json
 
  {
    "name": "lip oil"
-
  }
 
 ### Product Destroy
 DELETE http://localhost:3000/products/4
 
+### Users create (signup)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Test two",
+  "email": "test2@test.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "password"
+}
+### Product Index 
+GET http://localhost:3000/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDc5OTYxNDV9.YnnItHc9t0KB61Mp8fTwBtpe2LhEpcSYcIU8Sb7BHmo
+
+### Orders Create
+POST http://localhost:3000/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgwODQxNzh9.Wv5Zbh0tWMN7JS5aO3avTn-m4QK06u9mKgqwJkEzxCI
+Content-Type: application/json
+
+{
+"product_id": 1,
+"quantity": 2,
+"subtotal" :4,
+"tax": 2.00,
+"total": 30
+}
+
+### Order Show 
+GET http://localhost:3000/orders/1
+
+### Order Index 
+GET http://localhost:3000/orders

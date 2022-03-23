@@ -8,7 +8,8 @@ class Product < ApplicationRecord
 
   belongs_to :supplier 
   has_many :images
-
+  belongs_to :user 
+  has_many :orders
 
 
 
@@ -30,6 +31,7 @@ class Product < ApplicationRecord
   end
   
   validates :name, presence: true
+
 
 end
 

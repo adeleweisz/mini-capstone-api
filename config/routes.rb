@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  # products
   get "/one_product" => "products#one_product_method"
 
   get "/products" => "products#index"
@@ -16,6 +18,16 @@ Rails.application.routes.draw do
   delete "/products/:id" => "products#destroy"
    
   get "/second_product/:name" => "products#second_product_method"
+# users
+  post "/users" => "users#create"
+# sessions 
+  post "/sessions" => "sessions#create"
 
-  
+#orders
+get "/orders" => "orders#index"
+
+post "/orders" => "orders#create"
+
+get "orders/:id" => "orders#show"
+
 end
