@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_admin, except: [:index, :show]
-
+  # before_action :authenticate_admin, except: [:index, :show]
+# 
   def index
     products = Product.all
     render json: products
@@ -16,7 +16,8 @@ class ProductsController < ApplicationController
      product = Product.new(
       name: params["name"],
       price: params["price"],
-      description: params["description"]
+      description: params["description"],
+      supplier_id: params["supplier_id"]
     )
     if product.save
     render json: product

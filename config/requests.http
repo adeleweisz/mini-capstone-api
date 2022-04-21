@@ -1,16 +1,18 @@
- @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NDgyNTkyOTV9.qEn37hh3D_5L7Rf-6hnYBoyXNvcz3biwx3Wf8xfEMtk
+ @jwt =eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE2NDk5Nzk3Mzh9._4O3smuZxQNHcRkEjxNvBLJoqzvIEB6Mt-R_jc5PX2E
+
 
  
  ### Product Create
 POST http://localhost:3000/products
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
-  "name": "test title",
-  "price": "test price",
+  "name": "liquid blush",
+  "price": "22",
   "image_url": "test image_url",
-  "description": "test directions"
-  
+  "description": "coral pink color",
+  "supplier_id": "1"
 }
 
 ### Product Index 
@@ -22,23 +24,24 @@ Content-Type: application/json
 
 
 ###Product Update
- PATCH http://localhost:3000/products/2
+ PATCH http://localhost:3000/products/10
  Content-Type: application/json
+ Authorization: Bearer {{jwt}}
 
  {
-   "name": "lip oil"
+   "name": "matte liquid blush"
  }
 
 ### Product Destroy
-DELETE http://localhost:3000/products/4
+DELETE http://localhost:3000/products/5
 
 ### Users create (signup)
 POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "Adele",
-  "email": "adele@test.com",
+  "name": "Harry",
+  "email": "styles@test.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -48,28 +51,25 @@ POST http://localhost:3000/sessions
 Content-Type: application/json
 
 {
-  "email": "adele@test.com",
+  "email": "styles@test.com",
   "password": "password"
 }
 ### Product Index 
 GET http://localhost:3000/products
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDc5OTYxNDV9.YnnItHc9t0KB61Mp8fTwBtpe2LhEpcSYcIU8Sb7BHmo
+Authorization: Bearer {{jwt}}
 
 ### Orders Create
 POST http://localhost:3000/orders
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgwODQxNzh9.Wv5Zbh0tWMN7JS5aO3avTn-m4QK06u9mKgqwJkEzxCI
 Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 {
-"product_id": 1,
-"quantity": 2,
-"subtotal" :4,
-"tax": 2.00,
-"total": 30
+"product_id": 2,
+"quantity": 2
 }
 
 ### Order Show 
-GET http://localhost:3000/orders/1
+GET http://localhost:3000/orders/2
 
 ### Order Index 
 GET http://localhost:3000/orders

@@ -10,10 +10,13 @@ class CartedProductsController < ApplicationController
     )
     carted_product.save
     render json: carted_product
+  else 
+    render json: {error_message:carted_products.errors.full.messages},
+  end
   end
  
   def index
-    all_carted_products = current_user.carted_products.where(status: "carted")
+    carted_products = current_user.carted_products.where(status: "carted")
     render json: all_carted_products
   end
 
